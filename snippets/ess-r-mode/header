@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: header
+# key: header
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
+# --
+###############################################################################
+## TITLE : ${1}
+## PROJECT : ${2}
+## NAME : Mitchell Bosley
+## DATE : `(format-time-string "%Y-%m-%d")` $0
+###############################################################################
