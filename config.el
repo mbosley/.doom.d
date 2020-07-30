@@ -22,7 +22,7 @@
   (setq hour (nth 2 (parse-time-string (current-time-string))))
   (if (and (< hour 17) (> hour 6))
       (setq doom-theme 'doom-one-light)
-    (setq doom-theme 'doom-one)))
+    (setq doom-theme 'doom-dark+)))
 (set-theme-type)
 
 ;; If you use `org' and don't want your org files in the default location below,
@@ -66,6 +66,8 @@
          (word (flyspell-get-word)))
     (when (consp word)
       (flyspell-do-correct 'save nil (car word) current-location (cadr word) (caddr word) current-location))))
+
+(setq use-package-verbose t)
 
 (use-package org
 :after org
@@ -185,7 +187,7 @@
 (use-package org-roam
   :commands (org-roam-insert org-roam-find-file org-roam)
   :init
-  ;; (setq org-roam-directory "Users/mitchellbosley/Desktop/org/roam/")
+  (setq org-roam-directory "/Users/mitchellbosley/Desktop/org/roam/")
   (map! :leader
         :prefix "n"
         :desc "Org-Roam-Insert" "i" #'org-roam-insert
@@ -261,7 +263,7 @@
   (setq deft-recursive t
         deft-use-filter-string-for-filename t
         deft-default-extension "org"
-        deft-directory "/Users/mitchellbosley/Desktop/org/roam"
+        deft-directory "/Users/mitchellbosley/Desktop/org/roam/"
         ;; converts the filter string into a readable file-name using kebab-case:
         deft-file-naming-rules
         '((noslash . "-")
@@ -277,8 +279,12 @@
   :bind
   ("C-x m" . mathpix-screenshot))
 
-(use-package org-fragtog
-  :after org
-  :init
-  (add-hook 'org-mode-hook 'org-fragtog-mode)
-  )
+;; (use-package org-fragtog
+;;   :after org
+;;   :init
+;;   (add-hook 'org-mode-hook 'org-fragtog-mode)
+;;   )
+
+;; (use-package geiser
+;;   :init (setq geiser-active-implementations '(mit))
+;;   )

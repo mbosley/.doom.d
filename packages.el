@@ -57,3 +57,6 @@
 (package! mathpix :recipe (:host github :repo "jethrokuan/mathpix.el"))
 (package! org-fragtog)
 ;; (package! forge)
+(unpin! org-roam)
+(unpin! lsp-mode)
+(unpin! company-org-roam)
