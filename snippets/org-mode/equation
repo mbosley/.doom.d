@@ -1,9 +1,12 @@
 # -*- mode: snippet -*-
 # name: equation
+# uuid:
 # key: eq
 # condition: t
 # --
 
 \begin{equation}
-  $(1)
+  \begin{aligned}
+  $1
+  \end{aligned}
 \end{equation}
