@@ -407,6 +407,8 @@
         deft-use-filter-string-for-filename t
         deft-default-extension "org"
         deft-directory "/Users/mitchellbosley/Desktop/org/roam/"
+        ;; limits number of displayed files to speed things up
+        deft-file-limit 30
         ;; converts the filter string into a readable file-name using kebab-case:
         deft-file-naming-rules
         '((noslash . "-")
