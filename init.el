@@ -18,11 +18,20 @@
        ;;japanese
 
        :completion
-       company           ; the ultimate code completion backend
+       (company
+        ;; +childframe
+        ;; +tng
+        )           ; the ultimate code completion backend
        ;;helm              ; the *other* search engine for love and life
-       ;;ido               ; the other *other* search engine...
-       ivy               ; a search engine for love and life
-
+       ;;do               ; the other *other* search engine...
+       ;; (ivy
+       ;;  +fuzzy
+       ;;  +prescient
+       ;; +childframe
+       ;; +icons
+       ;; )               ; a search engine for love and life
+       (vertico +icons)
+                        ;
        :ui
        deft              ; notational velocity for Emacs
        doom              ; what makes DOOM look the way it does
@@ -38,7 +47,7 @@
        ophints           ; highlight the region an operation acts on
        (popup +defaults)   ; tame sudden yet inevitable temporary windows
        ;;pretty-code       ; ligatures or substitute text with pretty symbols
-       ;;tabs              ; an tab bar for Emacs
+       ;; tabs              ; an tab bar for Emacs
        treemacs          ; a project drawer, like neotree but cooler
        ;;unicode           ; extended unicode support for various languages
        vc-gutter         ; vcs diff in the fringe
@@ -62,10 +71,15 @@
        word-wrap         ; soft wrapping with language-aware indent
 
        :emacs
-       dired             ; making dired pretty [functional]
+       (dired
+        ;; +ranger
+        +icons
+        )             ; making dired pretty [functional]
        electric          ; smarter, keyword-based electric-indent
-       ibuffer         ; interactive buffer management
-       undo              ; persistent, smarter undo for your inevitable mistakes
+       ;; ibuffer         ; interactive buffer management
+       (undo
+        ;; +tree
+        )              ; persistent, smarter undo for your inevitable mistakes
        vc                ; version-control and Emacs, sitting in a tree
 
        :term
@@ -76,7 +90,7 @@
 
        :checkers
        syntax              ; tasing you for every semicolon you forget
-       spell             ; tasing you for misspelling mispelling
+       (spell +flyspell)             ; tasing you for misspelling mispelling
        grammar           ; tasing grammar mistake every you make
 
        :os
@@ -96,7 +110,8 @@
         +peek
         ;; +eglot
         )
-       (magit +forge)             ; a git porcelain for Emacs
+       (magit
+        +forge)             ; a git porcelain for Emacs
        make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
        pdf               ; pdf enhancements
@@ -149,7 +164,8 @@
         +pretty
         +present
         +jupyter
-        +roam
+        ;; +roam
+        +roam2
         +noter
         +hugo
         +lsp
@@ -162,22 +178,23 @@
        (python
         +lsp
         +conda
-        +pyright
+        ;; +pyright
         )            ; beautiful is better than ugly
        ;;qt                ; the 'cutest' gui framework ever
        ;;racket            ; a DSL for DSLs
        ;;rest              ; Emacs as a REST client
        ;;rst               ; ReST in peace
-       ;;(ruby +rails)     ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
+       (ruby +rails)     ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
        ;;rust              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        ;;scala             ; java, but good
-       scheme            ; a fully conniving family of lisps
-       sh                ; she sells {ba,z,fi}sh shells on the C xor
+       ;; scheme            ; a fully conniving family of lisps
+       ;; sh                ; she sells {ba,z,fi}sh shells on the C xor
        ;;sml
        ;;solidity          ; do you need a blockchain? No.
        ;;swift             ; who asked for emoji variables?
        ;;terra             ; Earth and Moon in alignment for performance.
        ;;web               ; the tubes
+       yaml
 
        :email
        ;;(mu4e +gmail)
