@@ -23,7 +23,7 @@
         ;; +tng
         )           ; the ultimate code completion backend
        ;;helm              ; the *other* search engine for love and life
-       ;;do               ; the other *other* search engine...
+       ;;ido               ; the other *other* search engine...
        ;; (ivy
        ;;  +fuzzy
        ;;  +prescient
@@ -115,6 +115,7 @@
        make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
        pdf               ; pdf enhancements
+       biblio
        ;;prodigy           ; FIXME managing external services & code builders
        ;;rgb               ; creating color strings
        ;;terraform         ; infrastructure as code
@@ -160,14 +161,12 @@
        (org               ; organize your plain life in plain text
         +dragndrop
         +gnuplot
-        +hugo
+        ;; +hugo
         +pretty
         +present
         +jupyter
-        ;; +roam
         +roam2
         +noter
-        +hugo
         +lsp
         +pomodoro
         )

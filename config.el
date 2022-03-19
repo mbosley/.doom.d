@@ -23,7 +23,7 @@
   "Sets theme type to light or dark, depending on the hour emacs is started"
   (setq hour (nth 2 (parse-time-string (current-time-string))))
   (if (and (< hour 17) (> hour 6))
-      (setq doom-theme 'modus-operandi)
+      (setq doom-theme 'leuven)
     (setq doom-theme 'modus-vivendi)))
 (set-theme-type)
 
@@ -98,133 +98,6 @@
   (setq org-roam-completion-everywhere nil)
   )
 
-;; (use-package! websocket
-;;     :after org-roam)
-
-;; (use-package! org-roam-ui
-;;     :after org-roam ;; or :after org
-;; ;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
-;; ;;         a hookable mode anymore, you're advised to pick something yourself
-;; ;;         if you don't care about startup time, use
-;; ;;  :hook (after-init . org-roam-ui-mode)
-;;     :config
-;;     (setq org-roam-ui-sync-theme t
-;;           org-roam-ui-follow t
-;;           org-roam-ui-update-on-save t
-;;           org-roam-ui-open-on-start t))
-;; (use-package org-roam
-;;   ;; :commands (org-roam-insert org-roam-find-file org-roam)
-;;   ;; :after org
-;;   ;; :defer t
-;;   ;; :init
-;;   ;; (setq org-roam-directory "/Users/mitchellbosley/Desktop/org/roam/")
-;;   ;; (map! :leader
-;;   ;;       :prefix "n"
-;;   ;;       :desc "Org-Roam-Insert" "i" #'org-roam-insert
-;;   ;;       :desc "Org-Roam-Find"   "/" #'org-roam-find-file
-;;   ;;       :desc "Org-Roam-Buffer" "r" #'org-roam )
-;;   ;; (setq org-roam-graph-viewer "/Applications/Firefox.app/Contents/MacOS/firefox")
-;;   ;; (setq org-roam-link-title-format "§%s")
-;;   ;; (setq org-roam-completion-everywhere t)
-;;   ;; (setq org-roam-v2-ack t)
-;; ;;   (setq org-roam-capture-templates
-;; ;;         '(("d" "default" plain (function org-roam--capture-get-point)
-;; ;;            "%?"
-;; ;;            :file-name "%<%Y%m%d%H%M%S>-${slug}"
-;; ;;            :head "#+TITLE: ${title}\n
-;; ;; - tags ::"
-;; ;;            :unnarrowed t)))
-;; ;;   :config
-;; ;;   (setq org-roam-dailies-capture-templates
-;; ;;         (let ((head "#+title: %<%Y-%m-%d (%A)>\n#+startup: showall\n* [/] Do Today\n* [/] Maybe Do Today\n* Journal\n"))
-;; ;;           `(("j" "journal" entry
-;; ;;              #'org-roam-capture--get-point
-;; ;;              "* %<%H:%M> %?"
-;; ;;              :file-name "daily/%<%Y-%m-%d>"
-;; ;;              :head ,head
-;; ;;              :olp ("Journal"))
-;; ;;             ("t" "do today" item
-;; ;;              #'org-roam-capture--get-point
-;; ;;              "[ ] %(princ as/agenda-captured-link)"
-;; ;;              :file-name "daily/%<%Y-%m-%d>"
-;; ;;              :head ,head
-;; ;;              :olp ("Do Today")
-;; ;;              :immediate-finish t)
-;; ;;             ("m" "maybe do today" item
-;; ;;              #'org-roam-capture--get-point
-;; ;;              "[ ] %(princ as/agenda-captured-link)"
-;; ;;              :file-name "daily/%<%Y-%m-%d>"
-;; ;;              :head ,head
-;; ;;              :olp ("Maybe Do Today")
-;; ;;              :immediate-finish t))))
-
-;; ;;   (org-roam-mode +1)
-;;   )
-
-;; ;; (use-package company-org-roam
-;; ;;   :after org-roam company org
-;; ;;   :config
-;; ;;   (push 'company-org-roam company-backends))
-
-;; (use-package org-roam-bibtex
-;;   :hook (org-roam-mode . org-roam-bibtex-mode)
-;;   :init
-;;   (map! :leader
-;;         :prefix "n"
-;;         :desc "Orb-note-actions" "a" #'orb-note-actions )
-;;   (setq orb-preformat-keywords
-;;         '("citekey" "title" "url" "author-or-editor" "keywords" "file")
-;;         orb-process-file-keyword t
-;;         orb-file-field-extensions '("pdf"))
-
-;;   (setq orb-templates
-;;         `(("r" "ref" plain (function org-roam-capture--get-point)
-;;            ""
-;;            :file-name "${citekey}"
-;;            :head "#+TITLE: ${citekey}: ${title}\n#+ROAM_KEY: ${ref}
-
-;; - tags ::
-;; - keywords :: ${keywords}
-
-;; * ${title}
-;; :PROPERTIES:
-;; :Custom_ID: ${citekey}
-;; :URL: ${url}
-;; :AUTHOR: ${author-or-editor}
-;; :NOTER_DOCUMENT: ${file}  ; <== special file keyword: if more than one filename
-;; :NOTER_PAGE:              ;     is available, the user will be prompted to choose
-;; :END:")))
-
-
-
-
-;;   (setq orb-preformat-keywords
-;;         '("citekey" "title" "url" "file" "author-or-editor" "keywords"))
-
-;;     (setq orb-templates
-;;           '(("r" "ref" plain (function org-roam-capture--get-point)
-;;              ""
-;;              :file-name "${slug}"
-;;              :head "#+TITLE: ${citekey}: ${title}\n#+ROAM_KEY: ${ref}
-
-;;   - tags ::
-;;   - keywords :: ${keywords}
-
-;;   * Notes
-;;   :PROPERTIES:
-;;   :Custom_ID: ${citekey}
-;;   :URL: ${url}
-;;   :AUTHOR: ${author-or-editor}
-;;   :NOTER_DOCUMENT: %(orb-process-file-field \"${citekey}\")
-;;   :NOTER_PAGE:
-;;   :END:
-;;   ** Argument
-;;   ** Methods
-;;   ** Results
-;;   ** Contribution
-;;   ** Critique")))
-;;   )
-
 (use-package org
   ;; :after org
   :defer t
@@ -293,7 +166,7 @@
                                          " %i %-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
                                    (search . " %i %-12:c"))
         )
-  ;; (setq org-super-agenda-keep-order t)
+  (defalias '+org--restart-mode-h #'ignore)
   )
 
 (use-package vulpea
@@ -356,6 +229,13 @@
         org-agenda-start-day nil ;; i.e. today
         org-agenda-start-with-log-mode t
         org-agenda-start-on-weekday nil)
+  ;; (setq org-agenda-prefix-format '(
+  ;;                                  ;; (agenda  . " %i %-12:c%?-12t% s") ;; file name + org-agenda-entry-type
+  ;;                                  (agenda  . "  • ")
+  ;;                                  (timeline  . "  % s")
+  ;;                                  (todo  . " %i %-12:c")
+  ;;                                  (tags  . " %i %-12:c")
+  ;;                                  (search . " %i %-12:c")))
   (setq org-super-agenda-groups
         '(
           (:name "Today"
@@ -515,25 +395,6 @@
           (nospace . "-")
           (case-fn . downcase))))
 
-;; (use-package mathpix.el
-;;   :init
-;;   (setq mathpix-screenshot-method "screencapture -i %s")
-;;   :custom
-;;   ((mathpix-app-id "app-id")
-;;    (mathpix-app-ky "app-key"))
-;;   :bind
-;;   ("C-x m" . mathpix-screenshot))
-
-;; (use-package org-fragtog
-;;   :after org
-;;   :init
-;;   (add-hook 'org-mode-hook 'org-fragtog-mode)
-;;   )
-
-;; (use-package geiser
-;;   :init (setq geiser-active-implementations '(mit))
-;;   )
-
 (use-package lsp-mode
   :config
   (setq lsp-auto-guess-root t))
@@ -546,8 +407,6 @@
   ;; (setq lsp-julia-package-dir "~/.emacs.d/.local/straight/repos/lsp-julia/languageserver")
   ;; (require 'lsp-julia)
   (add-hook 'ess-julia-mode-hook #'lsp-mode))
-
-;; (setq org-babel-clojure-backend `cider)
 
 ;; (org-babel-do-load-languages
 ;;  'org-babel-load-languages
@@ -741,229 +600,25 @@
   :config (setq org-jekyll-project-root "/Users/mitchellbosley/mbosley.github.io")
   )
 
-;; (use-package! bibtex-completion
-;;   :defer t
-;;   :config
-;;   (setq bibtex-completion-pdf-field "file"
-;;         bibtex-completion-additional-search-fields '("journaltitle")
-;;         bibtex-completion-pdf-symbol "@"
-;;         bibtex-completion-notes-symbol "#"
-;;         bibtex-completion-display-formats '((t . "${=has-pdf=:1}${=has-note=:1} ${author:20} ${year:4} ${title:*} ${=type=:3} ${journaltitle:10}")))
-;;         bibtex-completion-bibliography '("/Users/mitchellbosley/library.bib")
-;;         bibtex-completion-library-path "/Users/mitchellbosley/"
-;;         bibtex-completion-notes-path '("/Users/mitchellbosley/Desktop/org/roam"))
-
-;; (use-package! ivy-bibtex
-;;   :when (featurep! :completion ivy)
-;;   :defer t
-;;   :config
-;;   (add-to-list 'ivy-re-builders-alist '(ivy-bibtex . ivy--regex-plus)))
-
-;; (use-package! bibtex-actions
-;;   :when (featurep! :completion vertico)
-;;   :after embark bibtex-completion
-;;   :config
-;;   (add-to-list 'embark-keymap-alist '(bibtex . bibtex-actions-map)))
-
-;; (use-package! citeproc
-;;   :defer t)
-
-;; ;; ;; ;;; Org-Cite configuration
-
-;; (use-package! oc
-;;   :after org bibtex-completion bibtex-actions
-;;   :config
-;;   (require 'ox)
-;;   (map! :map org-mode-map
-;;         :localleader
-;;         :desc "Insert citation" "@" #'org-cite-insert)
-;;   (setq org-cite-global-bibliography
-;;         (let ((paths (or bibtex-actions-bibliography
-;;                          bibtex-completion-bibliography)))
-;;           ;; Always return bibliography paths as list for org-cite.
-;;           (if (stringp paths) (list paths) paths)))
-;;   ;; setup export processor; default csl/citeproc-el, with biblatex for latex
-;;   (setq org-cite-export-processors
-;;         '((latex biblatex)
-;;           (t csl))))
-
-;; (use-package! oc-bibtex-actions
-;;   :when (featurep! :completion vertico)
-;;   :after (oc bibtex-actions)
-;;   :config
-;;   (setq org-cite-insert-processor 'oc-bibtex-actions
-;;         org-cite-follow-processor 'oc-bibtex-actions))
-
-;; ;; Set bibliography paths so they are the same.
-;; (defvar my/bibs '("/Users/mitchellbosley/library.bib"))
-
-;; (use-package marginalia
-;;   :ensure t
-;;   :config
-;;   (marginalia-mode))
-
-;; (use-package embark
-;;   :ensure t
-
-;;   :bind
-;;   (("C-." . embark-act)         ;; pick some comfortable binding
-;;    ("C-;" . embark-dwim)        ;; good alternative: M-.
-;;    ("C-h B" . embark-bindings)) ;; alternative for `describe-bindings'
-
-;;   :init
-
-;;   ;; Optionally replace the key help with a completing-read interface
-;;   (setq prefix-help-command #'embark-prefix-help-command)
-
-;;   :config
-
-;;   ;; Hide the mode line of the Embark live/completions buffers
-;;   (add-to-list 'display-buffer-alist
-;;                '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
-;;                  nil
-;;                  (window-parameters (mode-line-format . none)))))
-
-
-;; (use-package oc-bibtex-actions
-;;   :bind (("C-c b" . org-cite-insert)
-;;          ("M-o" . org-open-at-point)
-;;          :map minibuffer-local-map
-;;          ("M-b" . bibtex-actions-insert-preset))
-;;   :after (embark oc)
-;;   :config
-;;   (setq bibtex-actions-bibliography my/bibs
-;;         org-cite-global-bibliography my/bibs
-;;         org-cite-insert-processor 'oc-bibtex-actions
-;;         org-cite-follow-processor 'oc-bibtex-actions
-;;         org-cite-activate-processor 'basic))
-;;   (setq bibtex-actions-templates
-;;         '((main . "${author editor:30}     ${date year issued:4}     ${title:48b}")
-;;         (suffix . "          ${=key= id:15}    ${=type=:12}    ${tags keywords:*}")
-;;         (note . "#+title: Notes on ${author editor}, ${title}")))
-;; ;; Use consult-completing-read for enhanced interface.
-;; (advice-add #'completing-read-multiple :override #'consult-completing-read-multiple)
-
-
-
-;;   ;;; Org-cite processors
-;; (use-package! oc-basic
-;;   :after oc)
-
-;; (use-package! oc-biblatex
-;;   :after oc)
-
-;; (use-package! oc-csl
-;;   :after oc)
-
-;; (use-package! oc-natbib
-;;   :after oc)
-
-;; ;; ;;;; Third-party
-
-;; (use-package! oc-bibtex-actions
-;;   :when (featurep! :completion vertico)
-;;   :after oc
-;;   :demand t
-;;   :config
-;;   (setq org-cite-insert-processor 'oc-bibtex-actions
-;;         org-cite-follow-processor 'oc-bibtex-actions
-;;         org-cite-activate-processor 'basic))
-
-(use-package! bibtex-completion
-  :defer t
+(use-package! citar
   :config
-  (setq bibtex-completion-additional-search-fields '(keywords)
-        bibtex-completion-pdf-field "file"));; This tell bibtex-completion to look at the File field of the bibtex to figure out which pdf to open
+  (setq! citar-bibliography '("/Users/mitchellbosley/library.bib")
+         citar-library-paths '("/Users/mitchellbosley/")
+         citar-notes-paths '("/Users/mitchellbosley/Desktop/org/roam/")
+         org-cite-csl-styles-dir "/Users/mitchellbosley/Zotero/styles")
 
-(use-package! ivy-bibtex
-  :when (featurep! :completion ivy)
-  :defer t
-  :config
-  (add-to-list 'ivy-re-builders-alist '(ivy-bibtex . ivy--regex-plus)))
-
-(use-package! bibtex-actions
-  :when (featurep! :completion vertico)
-  :after embark bibtex-completion
-  :config
-  (add-to-list 'embark-keymap-alist '(bibtex . bibtex-actions-map)))
-
-(use-package! citeproc
-  :defer t)
-
-;;; Org-Cite configuration
-
-(use-package! oc
-  :after org bibtex-completion bibtex-actions
-  :config
-  (require 'ox)
-  (map! :map org-mode-map
-        :localleader
-        :desc "Insert citation" "@" #'org-cite-insert)
-  (setq org-cite-global-bibliography
-        (let ((paths (or bibtex-actions-bibliography
-                         bibtex-completion-bibliography)))
-          ;; Always return bibliography paths as list for org-cite.
-          (if (stringp paths) (list paths) paths)))
-  ;; setup export processor; default csl/citeproc-el, with biblatex for latex
-  (setq org-cite-export-processors
-        '((latex biblatex)
-          (t csl))))
-
-(use-package! oc-bibtex-actions
-  :when (featurep! :completion vertico)
-  :after (oc bibtex-actions)
-  :config
-  (setq bibtex-actions-file-note-org-include '(org-id org-roam-ref))
-  (setq org-cite-insert-processor 'oc-bibtex-actions
-        org-cite-follow-processor 'oc-bibtex-actions)
-  (setq bibtex-actions-symbols
-        `((pdf . (,(all-the-icons-icon-for-file "foo.pdf" :face 'all-the-icons-dred) .
-                  ,(all-the-icons-icon-for-file "foo.pdf" :face 'bibtex-actions-icon-dim)))
+  (setq citar-symbols
+        `((file . (,(all-the-icons-icon-for-file "foo.pdf" :face 'all-the-icons-dred) .
+                   ,(all-the-icons-icon-for-file "foo.pdf" :face 'citar-icon-dim)))
           (note . (,(all-the-icons-icon-for-file "foo.txt") .
-                   ,(all-the-icons-icon-for-file "foo.txt" :face 'bibtex-actions-icon-dim)))
+                   ,(all-the-icons-icon-for-file "foo.txt" :face 'citar-icon-dim)))
           (link .
                 (,(all-the-icons-faicon "external-link-square" :v-adjust 0.02 :face 'all-the-icons-dpurple) .
-                 ,(all-the-icons-faicon "external-link-square" :v-adjust 0.02 :face 'bibtex-actions-icon-dim)))))
+                 ,(all-the-icons-faicon "external-link-square" :v-adjust 0.02 :face 'citar-icon-dim)))))
   ;; Here we define a face to dim non 'active' icons, but preserve alignment
-  (defface bibtex-actions-icon-dim
+  (defface citar-icon-dim
     '((((background dark)) :foreground "#282c34")
       (((background light)) :foreground "#fafafa"))
     "Face for obscuring/dimming icons"
     :group 'all-the-icons-faces)
-  (setq bibtex-actions-templates
-        '((main . "${author editor:30}     ${date year issued:4}     ${title:48}")
-          (suffix . "          ${=key= id:15}    ${=type=:12}    ${tags keywords:*}")
-          (note . "#+title: Notes on ${author editor} ${year}, ${title}"))))
-
-  ;;; Org-cite processors
-(use-package! oc-basic
-  :after oc)
-
-(use-package! oc-biblatex
-  :after oc)
-
-(use-package! oc-csl
-  :after oc)
-
-(use-package! oc-natbib
-  :after oc)
-
-;; Use consult-completing-read for enhanced interface.
-(advice-add #'completing-read-multiple :override #'consult-completing-read-multiple)
-
-
-;;;; Third-party
-
-(use-package! oc-bibtex-actions
-  :when (featurep! :completion vertico)
-  :after oc
-  :demand t
-  :config
-  (setq org-cite-insert-processor 'oc-bibtex-actions
-        org-cite-follow-processor 'oc-bibtex-actions
-        org-cite-activate-processor 'basic))
-
-(setq! bibtex-actions-bibliography '("/Users/mitchellbosley/library.bib"))
-(setq! bibtex-actions-library-paths '("/Users/mitchellbosley/")
-       bibtex-actions-notes-paths '("/Users/mitchellbosley/Desktop/org/roam/"))
-(setq! org-cite-csl-styles-dir "/Users/mitchellbosley/Zotero/styles")
+)
